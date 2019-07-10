@@ -7,7 +7,7 @@
 int main()
 {
 
-    char key[32], c_key[32] = {'a','b'};
+    char key[30], c_key[30] = {'a','b'};
     char *r;
     r = crypt(key, c_key);
     printf("Key: %d", sizeof(key));
