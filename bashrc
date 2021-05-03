@@ -88,12 +88,14 @@ fi
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
-alias ll='ls -lhAF'
+alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
-alias proxyon='export http_proxy=http://192.168.31.2:7890 ; export https_proxy=https://192.168.31.2:7890 ; export all_proxy=socks://192.168.31.2:7890 ; export ALL_PROXY=socks://192.168.31.2:7890'
-alias proxyoff='unset http_proxy; unset https_proxy; unset all_proxy unset ALL_PROXY'
+alias proxyon='export http_proxy=http://192.168.31.2:7890 ; export https_proxy=http://192.168.31.2:7890; export ALL_PROXY=socks5://192.168.31.2:7890; export ftp_proxy=http://192.168.31.2:7890; export all_proxy=socks5://192.168.31.2:7890; export no_proxy=127.0.0.1; export NO_PROXY=$no_proxy; export GIT_PROXY_COMMAND=oe-git-proxy'
+alias proxyoff='unset http_proxy; unset https_proxy; unset ALL_PROXY; unset all_proxy; unset ftp_proxy; unset no_proxy; unset NO_PROXY; unset GIT_PROXY_COMMAND'
+
+
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -118,7 +120,3 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-
-export GIT_PROXY_COMMAND="oe-git-proxy"
-export NO_PROXY=$no_proxy
-export no_proxy=''
